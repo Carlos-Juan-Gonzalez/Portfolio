@@ -3,7 +3,12 @@ from urllib import response
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.services.claude import get_message
+from app.routers import chat
+
 app = FastAPI()
+
+# Mensajes de prueba
+app.include_router(chat.router)
 
 # CORS provisional
 app.add_middleware(
